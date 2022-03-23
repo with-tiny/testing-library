@@ -7,7 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.1] - 2022-03-23
+## [0.0.2] - 2022-03-23
+
+### Added
+
+- Root index.js file in order to import directly as 'tiny-testing-library'
+
+## [0.0.1] - 2022-03-22Z
 
 ### Added
 

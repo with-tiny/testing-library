@@ -2,14 +2,11 @@
 
 Tiny testing library for little projects
 
-## Planned Packages
+## Next Features
 
-- core
-
-- CLI: to find all tests and run it from console (and --watch)
-
-## Tasks
-
+- README.md installation & usage
+- Typescript migration
+- Executable file
 - More expect functions
 - Find and run tests
 - Another level (**describe**, test/it, expect)
