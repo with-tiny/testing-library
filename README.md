@@ -2,12 +2,36 @@
 
 Tiny testing library for little projects
 
+## Installation
+
+```
+npm install -D tiny-testing-library
+```
+
+## Usage
+
+Set package.json test script to tiny-testing-library
+
+```
+{
+  "scripts": {
+    "test": "tiny-testing-library"
+  }
+}
+```
+
+And just run
+
+```
+npm run test
+```
+
 ## Next Features
 
-- README.md installation & usage
-- Typescript migration
-- Executable file
 - More expect functions
-- Find and run tests
-- Another level (**describe**, test/it, expect)
+- Add another test level (**describe**, test/it, expect)
+- Group test result in suites
 - BeforeEach, AfterEach, BeforeAll, AfterAll
+- Typescript support
+- JSX support
+- Typescript migration
