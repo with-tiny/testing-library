@@ -1,0 +1,19 @@
+{
+  "name": "@tinyapps/tiny-testing-library",
+  "version": "0.0.1",
+  "description": "Tiny testing library",
+  "main": "TinyTestingLibrary.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "test",
+    "testing",
+    "tiny",
+    "jest",
+    "vitest"
+  ],
+  "author": "xavikortes",
+  "type": "module",
+  "license": "ISC"
+}
