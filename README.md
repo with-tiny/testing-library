@@ -37,6 +37,7 @@ npm run test
 - Typescript support
 - JSX support
 - Typescript migration
+- Test library
 
 ## Changelog
 
