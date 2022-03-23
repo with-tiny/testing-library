@@ -29,9 +29,15 @@ npm run test
 ## Next Features
 
 - More expect functions
+- Documentation page
 - Add another test level (**describe**, test/it, expect)
 - Group test result in suites
+- Configuration
 - BeforeEach, AfterEach, BeforeAll, AfterAll
 - Typescript support
 - JSX support
 - Typescript migration
+
+## Changelog
+
+[See it here](./CHANGELOG.md)
