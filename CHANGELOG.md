@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Root index.js file in order to import directly as 'tiny-testing-library'
 
-## [0.0.1] - 2022-03-22Z
+## [0.0.1] - 2022-03-22
 
 ### Added
 
