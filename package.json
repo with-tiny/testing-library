@@ -1,6 +1,6 @@
 {
   "name": "tiny-testing-library",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Tiny testing library",
   "main": "index.js",
   "bin": "./bin/tiny-testing-library.js",

@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.4] - 2022-03-23
+
+### Changed
+
+- Bin file executed as node file
+- Path adjusted for root
+- Renamed bin file
+
+## [0.0.3] - 2022-03-23
+
 ### Added
 
 - Bin file to test from npm run test
