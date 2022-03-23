@@ -1,9 +1,11 @@
+import chalk from 'chalk'
+
 const test = async (title, callback) => {
   try {
     await callback()
-    console.log(`  ✓ ${title}`)
+    console.log(chalk.green(`  ✓ ${title}`))
   } catch (error) {
-    console.error(`  ✕ ${title}`)
+    console.error(chalk.red(`  ✕ ${title}`))
     console.error(`    ${error.message}`)
   }
 }
