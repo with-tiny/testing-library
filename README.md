@@ -30,7 +30,6 @@ npm run test
 
 - Documentation page
 - Configuration
-- BeforeEach, AfterEach, BeforeAll, AfterAll
 - Not modifier
 - Watch mode
 - Typescript support
