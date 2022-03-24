@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.9] - 2022-03-24
+
+### Added
+
+- Describe **required** level
+- Grouped tests in suites
+- Better failed expect output
+- Test summary
+
 ## [0.0.6] - 2022-03-23
 
 ### Added

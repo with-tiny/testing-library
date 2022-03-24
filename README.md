@@ -29,8 +29,6 @@ npm run test
 ## Next Features
 
 - Documentation page
-- Add another test level (**describe**, test/it, expect)
-- Group test result in suites
 - Configuration
 - BeforeEach, AfterEach, BeforeAll, AfterAll
 - Not modifier
