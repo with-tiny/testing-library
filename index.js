@@ -1,1 +1,3 @@
-import './src/TinyTestingLibrary.js'
+import { run } from './src/index.js'
+
+run('.')
