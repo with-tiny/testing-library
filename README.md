@@ -34,6 +34,7 @@ npm run test
 - Configuration
 - BeforeEach, AfterEach, BeforeAll, AfterAll
 - Not modifier
+- Watch mode
 - Typescript support
 - JSX support
 - Typescript migration
