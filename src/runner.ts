@@ -1,12 +1,16 @@
+import * as Types from './_types.js'
 import chalk from 'chalk'
 
 export const runTests = async () => {
-  for (const suite of global.testRun) {
+  const run: Types.TestRun = global.testRun
+  for (const suite of run) {
     await suite.exec()
   }
 }
 
-export const summaryTests = timeElapsed => {
+export const summaryTests = (timeElapsed: number) => {
+  const run: Types.TestRun = global.testRun
+
   const result = {
     suites: {
       total: 0,
@@ -19,7 +23,8 @@ export const summaryTests = timeElapsed => {
       failed: 0,
     },
   }
-  for (const suite of global.testRun) {
+
+  for (const suite of run) {
     result.suites.total++
     let suiteFailed = false
     for (const describe of suite.describes) {
@@ -35,6 +40,7 @@ export const summaryTests = timeElapsed => {
     if (suiteFailed) result.suites.failed++
     else result.suites.passed++
   }
+
   console.log()
   const suitesFailed = chalk.red(`${result.suites.failed} failed`)
   const suitesPassed = chalk.green(`${result.suites.passed} passed`)

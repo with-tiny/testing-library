@@ -1,5 +1,7 @@
-const suite = async title => {
-  const run = global.testRun
+import * as Types from './_types.js'
+
+const suite = async (title: string) => {
+  const run: Types.TestRun = global.testRun
 
   run.push({
     title,

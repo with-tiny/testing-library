@@ -26,7 +26,7 @@ export const loadSuites = () =>
     ignore: ['**/node_modules/**', './node_modules/**'],
   })
 
-const getTests = async (path, suites) => {
+const getTests = async (path: string, suites: string[]) => {
   global.testRun = []
   for (const title of suites) {
     suite(title)
@@ -35,10 +35,10 @@ const getTests = async (path, suites) => {
   return global.testRun
 }
 
-export const run = async path => {
+export const run = async (path: string) => {
   setupGlobals()
 
-  const suites = loadSuites()
+  const suites: string[] = loadSuites()
 
   const timeStart = performance.now()
   console.log()

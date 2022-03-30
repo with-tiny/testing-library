@@ -28,14 +28,13 @@ npm run test
 
 ## Next Features
 
-- Documentation page
-- Configuration
+- Test file/folder
 - Not modifier
 - Watch mode
-- Typescript support
-- JSX support
 - Typescript migration
-- Test library
+- Test itself
+- Configuration
+- Documentation page
 
 ## Changelog
 
