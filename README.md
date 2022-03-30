@@ -40,8 +40,8 @@ You should see a colored version of this output
     ✓ add 1 + 2 is equal to 3
 
 Test Suites: 	 0 failed, 1 passed, 1 total
-Tests: 		     0 failed, 1 passed, 1 total
-Time: 		     0.007 s
+Tests: 	 0 failed, 1 passed, 1 total
+Time: 	 0.007 s
 ```
 
 ## API docs

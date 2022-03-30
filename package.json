@@ -1,6 +1,6 @@
 {
   "name": "@tiny-apps/testing-library",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Tiny testing library",
   "main": "dist/index.js",
   "bin": {
