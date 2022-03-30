@@ -5,7 +5,7 @@ Tiny testing library for little projects
 ## Installation
 
 ```
-npm install -D tiny-testing-library
+npm install -D @tiny-apps/testing-library
 ```
 
 ## Usage
