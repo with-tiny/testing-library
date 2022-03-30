@@ -5,22 +5,22 @@ const findDescribe = () => {
   return describe
 }
 
-export const beforeEach = (callback) => {
+export const beforeEach = callback => {
   const describe = findDescribe()
   describe.beforeEach = callback
 }
 
-export const afterEach = (callback) => {
+export const afterEach = callback => {
   const describe = findDescribe()
   describe.afterEach = callback
 }
 
-export const beforeAll = (callback) => {
+export const beforeAll = callback => {
   const describe = findDescribe()
   describe.beforeAll = callback
 }
 
-export const afterAll = (callback) => {
+export const afterAll = callback => {
   const describe = findDescribe()
   describe.afterAll = callback
 }

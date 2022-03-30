@@ -6,7 +6,7 @@ export const runTests = async () => {
   }
 }
 
-export const summaryTests = (timeElapsed) => {
+export const summaryTests = timeElapsed => {
   const result = {
     suites: {
       total: 0,
@@ -43,12 +43,12 @@ export const summaryTests = (timeElapsed) => {
   console.log(
     `${chalk.bold('Test Suites:')} \t ${suitesFailed}, ${suitesPassed}, ${
       result.suites.total
-    } total`
+    } total`,
   )
   console.log(
     `${chalk.bold('Tests:')} \t\t ${testsFailed}, ${testsPassed}, ${
       result.tests.total
-    } total`
+    } total`,
   )
 
   const time = Math.round(timeElapsed) / 1000

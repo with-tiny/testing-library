@@ -35,7 +35,7 @@ const getTests = async (path, suites) => {
   return global.testRun
 }
 
-export const run = async (path) => {
+export const run = async path => {
   setupGlobals()
 
   const suites = loadSuites()

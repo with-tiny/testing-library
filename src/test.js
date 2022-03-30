@@ -9,7 +9,7 @@ const test = (title, callback) => {
     title,
     ok: null,
     exec: async () => {
-      const test = tests.find((_test) => _test.title === title)
+      const test = tests.find(_test => _test.title === title)
 
       try {
         await callback()

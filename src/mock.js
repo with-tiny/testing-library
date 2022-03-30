@@ -4,7 +4,7 @@ export const fn = (impl = () => {}) => {
     return impl(...args)
   }
   mockFn.mock = { calls: [] }
-  mockFn.mockImplementation = (newImpl) => (impl = newImpl)
+  mockFn.mockImplementation = newImpl => (impl = newImpl)
   return mockFn
 }
 
@@ -29,6 +29,6 @@ export const mock = (path, mockPath) => {
   }
 }
 
-export const mockReset = (path) => {
+export const mockReset = path => {
   delete require.cache[path]
 }
