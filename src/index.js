@@ -10,6 +10,8 @@ import utils from './utils.js'
 import * as hooks from './hooks.js'
 import * as mock from './mock.js'
 
+const args = process.argv.slice(2)
+
 const setupGlobals = () => {
   global.describe = describe
   global.test = test
@@ -24,24 +26,27 @@ const setupGlobals = () => {
   global.mockReset = mock.mockReset
 }
 
-export const loadSuites = () =>
-  glob.sync('{**/__tests__/**/*.[jt]s?(x),**/*.+(spec|test).[tj]s?(x)}', {
-    ignore: ['**/node_modules/**', '**/dist/**'],
-  })
+export const loadSuites = testPath =>
+  glob.sync(
+    `${testPath}{/**/__tests__/**/*.[jt]s?(x),/**/*.+(spec|test).[tj]s?(x)}`,
+    {
+      ignore: ['**/node_modules/**', '**/dist/**'],
+    },
+  )
 
 const getTests = async suites => {
   global.testRun = []
   for (const title of suites) {
     suite(title)
-    await import(utils.fromRoot(title))
+    await import(title)
   }
   return global.testRun
 }
 
-const run = async () => {
+const run = async testPath => {
   setupGlobals()
 
-  const suites = loadSuites()
+  const suites = loadSuites(testPath)
 
   const timeStart = performance.now()
   console.log()
@@ -52,4 +57,7 @@ const run = async () => {
   summaryTests(timeElapsed)
 }
 
-run()
+const testPath = utils.appDirectory + (args.length ? `/${args[0]}` : '')
+console.log({ testPath })
+
+run(testPath)
