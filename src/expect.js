@@ -10,7 +10,7 @@ const expect = _received => {
 
   const error = (_func, _expected, _otherReceived) => {
     const func = call(_func)
-    const expected =                chalk.green(`Expected: ${_expected}`)
+    const expected = chalk.green(`Expected: ${_expected}`)
     const realReceived = _otherReceived
       ? chalk.red(`Received: ${_otherReceived}`)
       : received
