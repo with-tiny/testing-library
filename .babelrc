@@ -3,11 +3,12 @@
     [
       "@babel/preset-env",
       {
+        "modules": false,
+        "loose": true,
         "targets": {
-          "node": "10"
+          "node": "17"
         }
       }
-    ],
-    "@babel/preset-typescript"
+    ]
   ]
 }

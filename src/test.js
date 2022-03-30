@@ -1,8 +1,7 @@
-import * as Types from './_types.js'
 import chalk from 'chalk'
 
-const test = (title: string, callback: () => void) => {
-  const run: Types.TestRun = global.testRun
+const test = (title, callback) => {
+  const run = global.testRun
   const describes = run[run.length - 1].describes
   const tests = describes[describes.length - 1].tests
 

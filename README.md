@@ -28,7 +28,7 @@ npm run test
 
 ## Next Features
 
-- Test file/folder
+- Test unique file/folder
 - Not modifier
 - Watch mode
 - Typescript migration

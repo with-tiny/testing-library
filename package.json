@@ -8,16 +8,15 @@
   },
   "repository": "github:xavikortes/tiny-testing-library",
   "scripts": {
-    "build": "babel src --extensions .js,.jsx,.ts,.tsx --out-dir dist",
-    "lint": "eslint --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx .",
-    "check-types": "tsc",
-    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|jsx|ts|tsx)\"",
+    "build": "babel src --extensions .js,.jsx --out-dir dist",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.jsx .",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|jsx)\"",
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --list-different",
     "lint-staged": "lint-staged",
-    "validate": "npm-run-all --parallel check-types check-format lint build",
-    "pre-commit": "npm run check-types && npm run lint-staged && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "validate": "npm-run-all --parallel check-format lint build",
+    "pre-commit": "npm run lint-staged && npm run build",
+    "test": "node dist/index.js"
   },
   "keywords": [
     "test",
@@ -26,29 +25,29 @@
     "jest",
     "vitest"
   ],
+  "files": [
+    "dist/**.*"
+  ],
   "author": {
     "name": "xavikortes",
     "email": "javiercortesveliz@gmail.com"
   },
+  "type": "module",
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.0.1",
-    "glob": "^7.2.0"
+    "glob": "^7.2.0",
+    "read-pkg-up": "^9.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
-    "@babel/preset-typescript": "^7.16.7",
-    "@types/glob": "^7.2.0",
-    "@typescript-eslint/eslint-plugin": "^5.17.0",
-    "@typescript-eslint/parser": "^5.17.0",
     "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.6.1",
-    "typescript": "^4.6.3"
+    "prettier": "^2.6.1"
   }
 }

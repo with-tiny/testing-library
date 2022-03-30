@@ -1,15 +1,14 @@
-import * as Types from './_types.js'
 import chalk from 'chalk'
 
 export const runTests = async () => {
-  const run: Types.TestRun = global.testRun
+  const run = global.testRun
   for (const suite of run) {
     await suite.exec()
   }
 }
 
-export const summaryTests = (timeElapsed: number) => {
-  const run: Types.TestRun = global.testRun
+export const summaryTests = timeElapsed => {
+  const run = global.testRun
 
   const result = {
     suites: {

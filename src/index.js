@@ -1,9 +1,12 @@
+#!/usr/bin/env node
+
 import glob from 'glob'
 import { runTests, summaryTests } from './runner.js'
 import suite from './suite.js'
 import describe from './describe.js'
 import test from './test.js'
 import expect from './expect.js'
+import utils from './utils.js'
 import * as hooks from './hooks.js'
 import * as mock from './mock.js'
 
@@ -23,28 +26,30 @@ const setupGlobals = () => {
 
 export const loadSuites = () =>
   glob.sync('{**/__tests__/**/*.[jt]s?(x),**/*.+(spec|test).[tj]s?(x)}', {
-    ignore: ['**/node_modules/**', './node_modules/**'],
+    ignore: ['**/node_modules/**', '**/dist/**'],
   })
 
-const getTests = async (path: string, suites: string[]) => {
+const getTests = async suites => {
   global.testRun = []
   for (const title of suites) {
     suite(title)
-    await import(`../${path}/${title}`)
+    await import(utils.fromRoot(title))
   }
   return global.testRun
 }
 
-export const run = async (path: string) => {
+const run = async () => {
   setupGlobals()
 
-  const suites: string[] = loadSuites()
+  const suites = loadSuites()
 
   const timeStart = performance.now()
   console.log()
-  await getTests(path, suites)
+  await getTests(suites)
   await runTests()
   const timeEnd = performance.now()
   const timeElapsed = timeEnd - timeStart
   summaryTests(timeElapsed)
 }
+
+run()

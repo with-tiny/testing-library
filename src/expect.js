@@ -1,14 +1,14 @@
 import chalk from 'chalk'
 
-const call = (func: string) =>
+const call = func =>
   `expect(${chalk.red('received')}).${func}(${chalk.green('expected')})`
 const spacing = ''.padStart(7)
-const spaced = (str: string) => spacing + str
+const spaced = str => spacing + str
 
-const expect = (_received: any) => {
+const expect = _received => {
   const received = chalk.red(`Received: ${_received}`)
 
-  const error = (_func: string, _expected: any, _otherReceived?: any) => {
+  const error = (_func, _expected, _otherReceived) => {
     const func = call(_func)
     const expected = chalk.green(`Expected: ${_expected}`)
     const realReceived = _otherReceived
@@ -21,12 +21,12 @@ const expect = (_received: any) => {
   }
 
   return {
-    toBe: (_expected: any) => {
+    toBe: _expected => {
       if (_received !== _expected) {
         error('toBe', _expected)
       }
     },
-    toStrictBe: (_expected: any) => {
+    toStrictBe: _expected => {
       if (JSON.stringify(_received) !== JSON.stringify(_expected)) {
         error('toStrictBe', _expected)
       }
@@ -56,22 +56,22 @@ const expect = (_received: any) => {
         error('toBeTruthy', true, !!_received)
       }
     },
-    toBeGreaterThan: (_expected: number) => {
+    toBeGreaterThan: _expected => {
       if (!(_received > _expected)) {
         error('toBeGreaterThan', _expected)
       }
     },
-    toBeGreaterThanOrEqual: (_expected: number) => {
+    toBeGreaterThanOrEqual: _expected => {
       if (!(_received >= _expected)) {
         error('toBeGreaterThanOrEqual', _expected)
       }
     },
-    toBeLessThan: (_expected: number) => {
+    toBeLessThan: _expected => {
       if (!(_received < _expected)) {
         error('toBeLessThan', _expected)
       }
     },
-    toBeLessThanOrEqual: (_expected: number) => {
+    toBeLessThanOrEqual: _expected => {
       if (!(_received <= _expected)) {
         error('toBeLessThanOrEqual', _expected)
       }
@@ -81,17 +81,17 @@ const expect = (_received: any) => {
         error('toBeNaN', 'NaN')
       }
     },
-    toBeInstanceOf: (_expected: any) => {
+    toBeInstanceOf: _expected => {
       if (!(_received instanceof _expected)) {
         error('toBeInstanceOf', _expected)
       }
     },
-    toContain: (_expected: any) => {
+    toContain: _expected => {
       if (!(_received?.includes?.(_expected) ?? false)) {
         error('toContain', _expected)
       }
     },
-    toHaveLength: (_expected: number) => {
+    toHaveLength: _expected => {
       if (_received?.length !== _expected) {
         error('toHaveLength', _expected, _received?.length)
       }

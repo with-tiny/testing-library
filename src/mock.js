@@ -1,27 +1,25 @@
-import * as Types from './_types.js'
-
 export const fn = (
-  impl: Types.AnonymousFn = () => {
+  impl = () => {
     return
   },
 ) => {
-  const mockFn = (...args: any[]) => {
+  const mockFn = (...args) => {
     mockFn.mock.calls.push(args)
     return impl(...args)
   }
   mockFn.mock = { calls: [] }
-  mockFn.mockImplementation = (newImpl: Types.AnonymousFn) => (impl = newImpl)
+  mockFn.mockImplementation = newImpl => (impl = newImpl)
   return mockFn
 }
 
-export const spyOn = (obj: Types.SpiedObject, prop: string): void => {
+export const spyOn = (obj, prop) => {
   const originalValue = obj[prop]
 
   obj[prop] = fn()
   obj[prop].mockRestore = () => (obj[prop] = originalValue)
 }
 
-export const mock = (path: string, mockPath: string | Types.AnonymousFn) => {
+export const mock = (path, mockPath) => {
   if (typeof mockPath === 'string') {
     require(mockPath)
     require.cache[path] = require.cache[mockPath]
@@ -36,6 +34,6 @@ export const mock = (path: string, mockPath: string | Types.AnonymousFn) => {
   }
 }
 
-export const mockReset = (path: string) => {
+export const mockReset = path => {
   delete require.cache[path]
 }
