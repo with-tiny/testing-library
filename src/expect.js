@@ -23,7 +23,7 @@ const expect = _received => {
   return {
     toBe: _expected => {
       if (_received !== _expected) {
-        error('toBe       ', _expected)
+        error('toBe      ', _expected)
       }
     },
     toStrictBe: _expected => {
