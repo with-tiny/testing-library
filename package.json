@@ -6,7 +6,7 @@
   "bin": {
     "tiny-testing-library": "dist/index.js"
   },
-  "repository": "github:xavikortes/tiny-testing-library",
+  "repository": "github:with-tiny/testing-library",
   "scripts": {
     "build": "babel src --extensions .js,.jsx --out-dir dist",
     "lint": "eslint --ignore-path .gitignore --ext .js,.jsx .",
