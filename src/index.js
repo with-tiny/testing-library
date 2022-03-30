@@ -58,6 +58,5 @@ const run = async testPath => {
 }
 
 const testPath = utils.appDirectory + (args.length ? `/${args[0]}` : '')
-console.log({ testPath })
 
 run(testPath)
