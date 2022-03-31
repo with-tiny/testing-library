@@ -45,6 +45,16 @@ Time: 		 0.007 s
 
 ```
 
+## Watch mode
+
+It's also possible to run it in watch-mode
+
+```
+npm run test -- --watch
+OR
+npx tiny-testing-library --watch
+```
+
 ## API docs
 ### Expect Methods
 
@@ -102,7 +112,6 @@ describe('my awesome test', () => {
 
 ## Next Features
 
-- Watch mode
 - Configuration
 - Tests against itself
 - Coverage

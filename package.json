@@ -4,7 +4,7 @@
   "description": "Tiny testing library",
   "main": "dist/index.js",
   "bin": {
-    "tiny-testing-library": "dist/index.js"
+    "tiny-testing-library": "./dist/index.js"
   },
   "repository": "github:with-tiny/testing-library",
   "scripts": {
@@ -36,7 +36,9 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.0.1",
+    "cross-spawn": "^7.0.3",
     "glob": "^7.2.0",
+    "nodemon": "^2.0.15",
     "read-pkg-up": "^9.1.0"
   },
   "devDependencies": {

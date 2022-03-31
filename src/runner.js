@@ -1,13 +1,35 @@
 import chalk from 'chalk'
+import glob from 'glob'
 
-export const runTests = async () => {
+import suite from './suite.js'
+import describe from './describe.js'
+import test from './test.js'
+import expect from './expect.js'
+import * as hooks from './hooks.js'
+import * as mock from './mock.js'
+
+const setupGlobals = () => {
+  global.describe = describe
+  global.test = test
+  global.expect = expect
+  global.beforeAll = hooks.beforeAll
+  global.beforeEach = hooks.beforeEach
+  global.afterEach = hooks.afterEach
+  global.afterAll = hooks.afterAll
+  global.fn = mock.fn
+  global.spyOn = mock.spyOn
+  global.mock = mock.mock
+  global.mockReset = mock.mockReset
+}
+
+const runTests = async () => {
   const run = global.testRun
   for (const suite of run) {
     await suite.exec()
   }
 }
 
-export const summaryTests = timeElapsed => {
+const summaryTests = timeElapsed => {
   const run = global.testRun
 
   const result = {
@@ -61,3 +83,37 @@ export const summaryTests = timeElapsed => {
   console.log(`${chalk.bold('Time:')} \t\t ${time} s`)
   console.log()
 }
+
+const loadSuites = testPath =>
+  glob.sync(
+    `${testPath}{/**/__tests__/**/*.[jt]s?(x),/**/*.+(spec|test).[tj]s?(x)}`,
+    {
+      ignore: ['**/node_modules/**', '**/dist/**'],
+    },
+  )
+
+const getTests = async suites => {
+  global.testRun = []
+  for (const title of suites) {
+    suite(title)
+    await import(title)
+  }
+  return global.testRun
+}
+
+const run = async testPath => {
+  const suites = loadSuites(testPath)
+
+  const timeStart = performance.now()
+  console.log()
+  await getTests(suites)
+  await runTests()
+  const timeEnd = performance.now()
+  const timeElapsed = timeEnd - timeStart
+  summaryTests(timeElapsed)
+}
+
+let args = process.argv.slice(2)
+
+setupGlobals()
+run(args[0])
