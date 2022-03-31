@@ -59,6 +59,7 @@ expect(5).toBeGreaterThan(2)
 - toBeDefined
 - toBeUndefined
 - toBeNull
+- toBeNotNull
 - toBeFalsy
 - toBeTruthy
 - toBeGreaterThan
@@ -69,6 +70,12 @@ expect(5).toBeGreaterThan(2)
 - toBeInstaceOf
 - toContain
 - toHaveLength
+
+### Not Modifier
+
+```js
+expect(5).not.toBeGreaterThan(20)
+```
 
 ### Test Hooks
 
@@ -95,7 +102,6 @@ describe('my awesome test', () => {
 
 ## Next Features
 
-- Not modifier
 - Watch mode
 - Configuration
 - Tests against itself
