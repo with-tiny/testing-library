@@ -12,8 +12,6 @@ const testPath = process.cwd() + (args.length ? `/${args[0]}` : '')
 let runnerCommand = new URL('runner.js', import.meta.url).toString()
 runnerCommand = runnerCommand.split(process.cwd() + '/')[1]
 
-console.log(runnerCommand)
-
 if (!watchMode) {
   spawn.sync('node', [runnerCommand, testPath], { stdio: 'inherit' })
 } else {

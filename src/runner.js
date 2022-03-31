@@ -1,12 +1,12 @@
 import chalk from 'chalk'
 import glob from 'glob'
 
-import suite from './suite.js'
-import describe from './describe.js'
-import test from './test.js'
-import expect from './expect.js'
-import * as hooks from './hooks.js'
-import * as mock from './mock.js'
+import suite from './lib/suite.js'
+import describe from './lib/describe.js'
+import test from './lib/test.js'
+import expect from './lib/expect.js'
+import * as hooks from './lib/hooks.js'
+import * as mock from './lib/mock.js'
 
 const setupGlobals = () => {
   global.describe = describe
