@@ -17,9 +17,7 @@ console.log(runnerCommand)
 if (!watchMode) {
   spawn.sync('node', [runnerCommand, testPath], { stdio: 'inherit' })
 } else {
-  spawn.sync(
-    'nodemon',
-    ['-w', `${process.cwd() + '/'}/src`, runnerCommand, testPath],
-    { stdio: 'inherit' },
-  )
+  spawn.sync('nodemon', ['-e', 'js jsx', runnerCommand, testPath], {
+    stdio: 'inherit',
+  })
 }
