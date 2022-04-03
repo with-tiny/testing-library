@@ -2,21 +2,21 @@
   "name": "@tiny-apps/testing-library",
   "version": "0.0.5",
   "description": "Tiny testing library",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "bin": {
     "tiny-testing-library": "./dist/index.js"
   },
   "repository": "github:with-tiny/testing-library",
   "scripts": {
-    "build": "babel src --extensions .js,.jsx --out-dir dist",
-    "lint": "eslint --ignore-path .gitignore --ext .js,.jsx .",
-    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|jsx)\"",
-    "format": "npm run prettier -- --write",
-    "check-format": "npm run prettier -- --list-different",
+    "build": "tiny-dev-scripts build",
+    "lint": "tiny-dev-scripts lint",
+    "format": "tiny-dev-scripts format",
+    "check-format": "tiny-dev-scripts check-format",
     "lint-staged": "lint-staged",
     "validate": "npm-run-all --parallel check-format lint build",
     "pre-commit": "npm run lint-staged && npm run build",
-    "test": "node dist/index.js"
+    "test": "node src/index.js"
   },
   "keywords": [
     "test",
@@ -26,8 +26,18 @@
     "vitest"
   ],
   "files": [
-    "dist/**.*"
+    "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./runner": {
+      "import": "./dist/runner.js",
+      "require": "./dist/runner.cjs"
+    }
+  },
   "author": {
     "name": "xavikortes",
     "email": "javiercortesveliz@gmail.com"
@@ -38,18 +48,12 @@
     "chalk": "^5.0.1",
     "cross-spawn": "^7.0.3",
     "glob": "^7.2.0",
-    "nodemon": "^2.0.15",
-    "read-pkg-up": "^9.1.0"
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.8",
-    "@babel/preset-env": "^7.16.11",
-    "eslint": "^8.12.0",
-    "eslint-config-prettier": "^8.5.0",
+    "@tiny-apps/dev-scripts": "^0.0.5",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.6.1"
+    "npm-run-all": "^4.1.5"
   }
 }

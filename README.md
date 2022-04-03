@@ -1,9 +1,16 @@
-# tiny-testing-library
-
-Tiny testing library for little projects
+<div align="center">
+  <h1>tiny-testing-library 🤏🧪</h1>
+  <p>Tiny testing library for small projects</p>
+  <hr />
+  <p>
+    <img src='https://img.shields.io/npm/v/@tiny-apps/testing-library.svg?style=flat-square' alt='version-badge'>
+    <img src='https://img.shields.io/npm/l/@tiny-apps/testing-library.svg?style=flat-square' alt='license-badge'>
+  </p>
+</div>
 
 ## Installation
 
+Go to the root of your project and run:
 ```
 npm install -D @tiny-apps/testing-library
 ```
@@ -47,7 +54,16 @@ Time: 		 0.007 s
 
 ## Watch mode
 
-It's also possible to run it in watch-mode
+It's also possible to run it in watch-mode.
+
+Set package.json watch script to "tiny-testing-library --watch" and run it
+
+```
+npm set-script watch "tiny-testing-library --watch"
+npm run watch
+```
+
+Or run directly
 
 ```
 npm run test -- --watch
